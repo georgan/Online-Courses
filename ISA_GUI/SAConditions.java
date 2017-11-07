@@ -2,7 +2,7 @@ import java.lang.Math;
 
 class SAConditions {
 	private double H,T,P,D;
-	private static int manyObjects = 0;
+	public static int manyObjects = 0;
 
 	private static final double T0 = 288.15;
 	private static final double rho0 = 1.225;
@@ -78,7 +78,7 @@ class SAConditions {
 			quantDensity = quantPressure*temperature[i]/T;
 		}
 
-		this.P = pressure[i]*quantPressure/100;
+		this.P = pressure[i]*quantPressure;
 		this.D = density[i]*quantDensity;
 
 		manyObjects++;
@@ -127,6 +127,45 @@ class SAConditions {
 	}
 
 
+	public double foot2m(double altitude) {
+		return 0.3048*altitude;
+	}
+
+	public double m2foot(double altitude) {
+		return altitude/0.3048;
+	}
+
+	public double kelvin2Celcius(double temp) {
+		return temp-273.15;
+	}
+
+	public double celcius2Kelvin(double temp) {
+		return temp+273.15;
+	}
+
+	public double pascal2hpascal(double press) {
+		return press/100;
+	}
+
+	public double hpascal2pascal(double press) {
+		return 100*press;
+	}
+
+	public double pascal2bar(double press) {
+		return 0.00001*press;
+	}
+
+	public double bar2pascal(double press) {
+		return 100000*press;
+	}
+
+	public double hpascal2bar(double press) {
+		return 0.001*press;
+	}
+
+	public double bar2hpascal(double press) {
+		return 1000*press;
+	}
 
 }
 
